@@ -19,8 +19,11 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      new CleanWebpackPlugin(),
-      new HtmlWebpackPlugin({ template: './client/index.html', filename: 'Text index.html'}),
+      new HtmlWebpackPlugin({ template: './index.html', filename: 'Contact card'}),
+      new InjectManifest({
+        swSrc: "./src-sw.js",
+        swDest: 'src-sw.js'
+      }),
       new WebpackPwaManifest({name: 'copyedit',
       short_name: 'J.A.T.E',
       description: 'JATE',
@@ -30,15 +33,13 @@ module.exports = () => {
       publicPath: './',
       image: [
         {
-          src: path.resolve('./client/src/images'),
+          src: path.resolve('.client/src/images/logo.png'),
           sizes: [96, 128, 192, 256, 384, 512],
+          destination: path.join("assets", "icons")
         },
       ],
       }),
-      new InjectManifest({
-        swSrc: "./client/src/src-sw.js",
-        swDest: 'service-worker.js'
-      })
+      
     ],
 
     module: {
@@ -49,7 +50,7 @@ module.exports = () => {
         },
         {
           test: /\.m?js$/,
-          exclude: /(node_modules|bower_components)/,
+          exclude: /(node_modules)/,
           use: {
             loader: 'babel-loader',
             options: {
