@@ -29,7 +29,7 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache),
 
 // TODO: Implement asset caching
 registerRoute(
-  ({ request }) => ['image'," script", "style"].includes(requres.destination),
+  ({ request }) => ['image'," script", "style"].includes(request.destination),
   new StaleWhileRevalidate({
     cacheName: 'my-cache',
     plugins: [
