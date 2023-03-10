@@ -1,0 +1,24 @@
+{
+  "name": "copyedit",
+  "short_name": "J.A.T.E",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "./",
+  "description": "JATE",
+  "background_color": "#7eb4e2",
+  "theme_color": "#7eb4e2",
+  "image": [
+    {
+      "src": "C:\\Users\\Kevin\\OneDrive\\Desktop\\CodingBootcamp\\Challenges\\Copyedit\\client\\src\\images\\logo.png",
+      "sizes": [
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "destination": "assets\\icon"
+    }
+  ]
+}
